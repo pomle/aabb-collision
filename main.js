@@ -32,22 +32,30 @@ function move(x, y) {
     subject.x += x;
     if (x > 0) {
         intersection(rect => {
-            subject.r = rect.l;
+            if (subject.r > rect.l) {
+                subject.r = rect.l;
+            }
         });
     } else if (x < 0) {
         intersection(rect => {
-            subject.l = rect.r;
+            if (subject.l < rect.r) {
+                subject.l = rect.r;
+            }
         });
     }
 
     subject.y += y;
     if (y > 0) {
         intersection(rect => {
-            subject.b = rect.t;
+            if (subject.b > rect.t) {
+                subject.b = rect.t;
+            }
         });
     } else if (y < 0) {
         intersection(rect => {
-            subject.t = rect.b;
+            if (subject.t < rect.b) {
+                subject.t = rect.b;
+            }
         });
     }
 
