@@ -3,6 +3,9 @@ import Vec from './Vec.js';
 
 const SPEED = 5;
 
+canvas.width = document.body.offsetWidth;
+canvas.height = document.body.offsetHeight;
+
 const context = canvas.getContext('2d');
 const desired = new Vec(0, 0);
 
