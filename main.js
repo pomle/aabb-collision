@@ -80,7 +80,7 @@ function draw() {
 function update() {
     const moveTo = new Vec(desired.x - subject.x, desired.y - subject.y);
     if (moveTo.len > 5) {
-        moveTo.len = SPEED;
+        moveTo.len /= 15;
         move(moveTo.x, moveTo.y);
     }
 
