@@ -73,8 +73,6 @@ function move(subject, x, y) {
             }
         });
     }
-
-    draw();
 }
 
 function drawRect(rect, color = '#000') {
