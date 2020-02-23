@@ -3,6 +3,7 @@ mod rect;
 
 use piston_window::*;
 use rand::prelude::*;
+use rayon::prelude::*;
 use rect::Rect;
 
 fn overlap(a: &Rect, b: &Rect) -> bool {
@@ -90,7 +91,7 @@ fn main() {
             desired = pos;
         });
 
-        followers.iter_mut().for_each(|subject| {
+        followers.par_iter_mut().for_each(|subject| {
             let mut move_to = [desired[0] - subject.x, desired[1] - subject.y];
             if distance(move_to) > 5.0 {
                 let slow_down = subject.width * subject.height * 0.2;
